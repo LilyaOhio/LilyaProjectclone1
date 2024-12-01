@@ -23,11 +23,12 @@ public class SearchEmployeeSteps extends CommonMethods {
         click(searchEmployeePage.EmployeeList);
     }
 
-    @When("user enter emplyee ID")
-    public void user_enter_emplyee_id() throws IOException {
+    @When("user enter emplyee ID {string}")
+    public void user_enter_emplyee_id(String string) {
+
         //WebElement empID = driver.findElement(By.id("empsearch_id"));
-       // empID.sendKeys("12306546");
-        sendText("12306546",searchEmployeePage.empID);
+        //empID.sendKeys(string);
+        sendText(string,searchEmployeePage.empID);
     }
 
     @When("user clicks on search button")

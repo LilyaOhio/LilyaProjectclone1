@@ -8,7 +8,7 @@ Feature: Add membership
     And user clicks on login button
     Then user on dashboard page
     When user clicks on PIM option
-    And user enter emplyee ID
+    And user enter emplyee ID "12306546"
     When user clicks on search button
     Then user is albe to see employee
     When  user clicks on ID number
