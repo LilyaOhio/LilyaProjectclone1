@@ -1,13 +1,16 @@
 Feature: Add membership
 
-  @member
-  Scenario: Membership
-
-            #Given user is able to access HRMS application
+  Background:
+        #Given user is able to access HRMS application
     When user enters admin username and password
     And user clicks on login button
     Then user on dashboard page
     When user clicks on PIM option
+    And user cliks on employee list option
+
+  @member
+  Scenario: Membership
+
     And user enter emplyee ID "12306546"
     When user clicks on search button
     Then user is albe to see employee

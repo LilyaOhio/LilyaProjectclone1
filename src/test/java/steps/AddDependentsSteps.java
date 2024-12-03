@@ -1,5 +1,6 @@
 package steps;
 
+import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.By;
@@ -15,7 +16,24 @@ import java.util.List;
 public class AddDependentsSteps extends CommonMethods {
     //AddDependentsPage addDependentsPage=new AddDependentsPage();
 
-    @Then("user is albe to see employee")
+
+    @When("user enter emplyee ID {string}")
+    public void user_enter_emplyee_id(String string) {
+
+        //WebElement empID = driver.findElement(By.id("empsearch_id"));
+        //empID.sendKeys(string);
+        sendText(string,searchEmployeePage.empID);
+    }
+
+    @When("user clicks on search button")
+    public void user_clicks_on_search_button() {
+        //WebElement search = driver.findElement(By.id("searchBtn"));
+        click(searchEmployeePage.search);
+    }
+
+
+
+@Then("user is albe to see employee")
     public void user_is_albe_to_see_employee() {
         System.out.println("passed");
     }
@@ -43,10 +61,10 @@ public class AddDependentsSteps extends CommonMethods {
 
     @Then("user enter firstname {string}")
     public void user_enter_firstname(String string) {
-        WebElement firstName = driver.findElement(By.id("dependent_name"));
-        firstName.sendKeys(string);
+        //WebElement firstName = driver.findElement(By.id("dependent_name"));
+        //firstName.sendKeys(string);
+        sendText(string, addDependentsPage.firstName);
     }
-
 
 
     @When("user select relationship")
@@ -54,6 +72,9 @@ public class AddDependentsSteps extends CommonMethods {
         WebElement Relationship = driver.findElement(By.xpath("//select[@id='dependent_relationshipType']"));
         Select sel = new Select(Relationship);
         sel.selectByIndex(1);
+
+
+
 
     }
 
@@ -80,9 +101,17 @@ public class AddDependentsSteps extends CommonMethods {
     }
     @Then("dependets saved successfully")
     public void dependets_saved_successfully () {
-        WebElement saveButton = driver.findElement(By.id("btnSaveDependent"));
-        saveButton.click();
+        //WebElement saveButton = driver.findElement(By.id("btnSaveDependent"));
+        //saveButton.click();
+        click(addDependentsPage.saveButton);
+
     }
+    @Then("Error messages should be clear, easily visible {string}")
+    public void error_messages_should_be_clear_easily_visible(String text) {
+WebElement required= driver.findElement(By.xpath("//span[text()='Required']"));
+sendText(text,addDependentsPage.required);
+    }
+
 
 }
 

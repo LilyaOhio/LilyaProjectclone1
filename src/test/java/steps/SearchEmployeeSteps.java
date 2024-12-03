@@ -23,18 +23,4 @@ public class SearchEmployeeSteps extends CommonMethods {
         click(searchEmployeePage.EmployeeList);
     }
 
-    @When("user enter emplyee ID {string}")
-    public void user_enter_emplyee_id(String string) {
-
-        //WebElement empID = driver.findElement(By.id("empsearch_id"));
-        //empID.sendKeys(string);
-        sendText(string,searchEmployeePage.empID);
-    }
-
-    @When("user clicks on search button")
-    public void user_clicks_on_search_button() {
-        //WebElement search = driver.findElement(By.id("searchBtn"));
-        click(searchEmployeePage.search);
-    }
-
 }

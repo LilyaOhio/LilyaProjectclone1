@@ -19,6 +19,29 @@ public class AddDependentsPage extends CommonMethods {
     @FindBy(id="dependent_name")
     public WebElement firstName;
 
+
+    @FindBy(id="dependent_dateOfBirth")
+    public WebElement Dateofbirth;
+
+    @FindBy(xpath="//select[@class='ui-datepicker-month']")
+    public WebElement monthlocator;
+
+
+    @FindBy(xpath="//select[@class='ui-datepicker-year']")
+    public WebElement yearlocator;
+
+    @FindBy(xpath="//a[@class='ui-state-default ui-state-active']")
+    public WebElement day;
+
+    @FindBy(id = "btnSaveDependent")
+    public WebElement saveButton;
+
+    @FindBy(xpath = "//span[text()='Required']")
+    public WebElement required;
+
+
+
+
     public AddDependentsPage(){
         PageFactory.initElements(driver, this);
     }
