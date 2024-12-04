@@ -42,4 +42,16 @@ Feature: Add dependent scenario
       |Required      |
 
 
+      @remove
+
+      Scenario:
+        And user enter emplyee ID "12306546"
+        When user clicks on search button
+        Then user is albe to see employee
+        When  user clicks on ID number
+        And user clicks on Dependents option
+        Then user click on dependent button
+        And user delets dependent
+
+
 
