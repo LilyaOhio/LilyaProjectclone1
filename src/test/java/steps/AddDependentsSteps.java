@@ -3,6 +3,7 @@ package steps;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
@@ -22,7 +23,7 @@ public class AddDependentsSteps extends CommonMethods {
 
         //WebElement empID = driver.findElement(By.id("empsearch_id"));
         //empID.sendKeys(string);
-        sendText(string,searchEmployeePage.empID);
+        sendText(string, searchEmployeePage.empID);
     }
 
     @When("user clicks on search button")
@@ -32,8 +33,7 @@ public class AddDependentsSteps extends CommonMethods {
     }
 
 
-
-@Then("user is albe to see employee")
+    @Then("user is albe to see employee")
     public void user_is_albe_to_see_employee() {
         System.out.println("passed");
     }
@@ -74,8 +74,6 @@ public class AddDependentsSteps extends CommonMethods {
         sel.selectByIndex(1);
 
 
-
-
     }
 
     @Then("user enters Date of Birth")
@@ -99,20 +97,37 @@ public class AddDependentsSteps extends CommonMethods {
             }
         }
     }
+
     @Then("dependets saved successfully")
-    public void dependets_saved_successfully () {
+    public void dependets_saved_successfully() {
         //WebElement saveButton = driver.findElement(By.id("btnSaveDependent"));
         //saveButton.click();
         click(addDependentsPage.saveButton);
 
     }
+
     @Then("Error messages should be clear, easily visible {string}")
     public void error_messages_should_be_clear_easily_visible(String text) {
-WebElement required= driver.findElement(By.xpath("//span[text()='Required']"));
-sendText(text,addDependentsPage.required);
+        WebElement required = driver.findElement(By.xpath("//span[text()='Required']"));
+//sendText(text,addDependentsPage.required);
+        Assert.assertTrue(addDependentsPage.required.isDisplayed());
     }
 
 
+    @Then("user click on dependent button")
+    public void user_click_on_dependent_button() {
+        //WebElement box = driver.findElement(By.xpath("//input[@value='1']"));
+        //box.click();
+        click(addDependentsPage.box);
+    }
+
+    @Then("user delets dependent")
+    public void user_delets_dependent() {
+        //WebElement delete= driver.findElement(By.id("delDependentBtn"));
+        //delete.click();
+        click(addDependentsPage.delete);
+
+    }
 }
 
 

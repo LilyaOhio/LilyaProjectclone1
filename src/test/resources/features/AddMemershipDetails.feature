@@ -8,14 +8,16 @@ Feature: Add membership
     When user clicks on PIM option
     And user cliks on employee list option
 
-  @member
-  Scenario: Membership
-
     And user enter emplyee ID "12306546"
     When user clicks on search button
     Then user is albe to see employee
     When  user clicks on ID number
     Then user click on membership button
+
+  @member
+  Scenario: Membership
+
+
     And user clicks on Add option button
     Then user select option from dropdown menu
     And user select Subscription Paid By
@@ -23,3 +25,10 @@ Feature: Add membership
     Then user select Currency
     And user enters day of Subscription and Renewal
     Then user clicks on save button
+
+
+    @delete
+    Scenario: Delete membership
+
+      And user clicks on checkbox button to select a membership
+      Then user clicks on delete button

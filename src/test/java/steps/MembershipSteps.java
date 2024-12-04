@@ -6,6 +6,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import utils.CommonMethods;
 
+import java.time.Year;
 import java.util.List;
 
 public class MembershipSteps extends CommonMethods {
@@ -25,9 +26,9 @@ public class MembershipSteps extends CommonMethods {
 
     @Then("user select option from dropdown menu")
     public void user_select_option_from_dropdown_menu() {
-        //WebElement Membership = driver.findElement(By.id("membership_membership"));
+        //WebElement Membership = driver.findElement(By.id("membership_membership")));
         Select sel = new Select(membershipPage.Membership);
-        sel.selectByIndex(3);
+        sel.selectByIndex(4);
     }
 
     @Then("user select Subscription Paid By")
@@ -39,10 +40,10 @@ public class MembershipSteps extends CommonMethods {
 
     @Then("user enter paid amount {string}")
     public void user_enter_paid_amount(String string) {
-        WebElement amount = driver.findElement(By.id("membership_subscriptionAmount"));
-        amount.sendKeys(string);
-
+        //WebElement amount = driver.findElement(By.id("membership_subscriptionAmount"));
+        sendText(string, membershipPage.amount);
     }
+
 
     @Then("user select Currency")
     public void user_select_currency() {
@@ -51,8 +52,9 @@ public class MembershipSteps extends CommonMethods {
         sel.selectByVisibleText("United States Dollar");
     }
 
+
     @Then("user enters day of Subscription and Renewal")
-    public void user_enters_day_of_subscription_and_renewal() throws InterruptedException {
+    public void user_enters_day_of_subscription_and_renewal() {
         WebElement subscriptionCommenceDate = driver.findElement(By.id("membership_subscriptionCommenceDate"));
         subscriptionCommenceDate.click();
 
@@ -70,9 +72,6 @@ public class MembershipSteps extends CommonMethods {
                 date.click();
             }
         }
-
-
-
         WebElement renewal = driver.findElement(By.id("membership_subscriptionRenewalDate"));
         renewal.click();
         WebElement month2 = driver.findElement(By.xpath("//select[@class='ui-datepicker-month']"));
@@ -90,10 +89,25 @@ public class MembershipSteps extends CommonMethods {
             }
         }
     }
+
     @Then("user clicks on save button")
-    public void user_clicks_o_save_button () {
+    public void user_clicks_o_save_button() {
         WebElement saveButton = driver.findElement(By.id("btnSaveMembership"));
         saveButton.click();
+
     }
 
+    @Then("user clicks on checkbox button to select a membership")
+    public void user_clicks_on_checkbox_button_to_select_a_membership() {
+//WebElement box= driver.findElement(By.xpath("//input[@value='87146 2592']"));
+//box.click();
+click(membershipPage.box);
+
+    }
+    @Then("user clicks on delete button")
+    public void user_clicks_on_delete_button() {
+//WebElement delete= driver.findElement(By.id("delMemsBtn"));
+//delete.sendKeys();
+click(membershipPage.delete);
+    }
 }
